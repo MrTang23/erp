@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "path": "/admin",
+    "name": "首页",
+    "icon": "el-icon-s-home",
+    "haveChild": false
+  },
+  {
+    "id": 2,
+    "name": "用户管理",
+    "icon": "el-icon-user",
+    "haveChild": true,
+    "children": [
+      {
+        "id": 3,
+        "path": "/admin",
+        "name": "首页2",
+        "icon": "el-icon-s-home",
+        "haveChild": false
+      },
+      {
+        "id": 4,
+        "path": "/admin",
+        "name": "首页3",
+        "icon": "el-icon-s-home",
+        "haveChild": false
+      }
+    ]
+  }
+]
