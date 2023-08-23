@@ -1,0 +1,25 @@
+[
+    {
+      "id": 40,
+      "name": "数据汇总",
+      "icon": "el-icon-user",
+      "haveChild": true,
+      "children": [
+        {
+          "id": 41,
+          "path": "/production-order-list",
+          "name": "生产指令",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        },
+        {
+          "id": 42,
+          "path": "/material-stock",
+          "name": "材料库存",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        }
+      ]
+    }
+  ]
+  

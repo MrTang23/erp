@@ -45,8 +45,8 @@ import http from "../assets/axios";
 export default {
     data() {
         return {
-            username: "tangaozhong",
-            password: "123456",
+            username: "",
+            password: "",
             privateCheck: true,
         };
     },

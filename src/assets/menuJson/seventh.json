@@ -1,0 +1,83 @@
+[
+    {
+      "id": 20,
+      "name": "材料",
+      "icon": "el-icon-user",
+      "haveChild": true,
+      "children": [
+        {
+          "id": 21,
+          "path": "/material-back",
+          "name": "材料退库",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        },
+        {
+          "id": 22,
+          "path": "/production-receipt",
+          "name": "生产领取",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        },
+        {
+          "id": 23,
+          "path": "/exceeding-claim",
+          "name": "超领申请",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "产品",
+      "icon": "el-icon-user",
+      "haveChild": true,
+      "children": [
+        {
+          "id": 31,
+          "path": "/product-warehousing",
+          "name": "产品入库",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        },
+        {
+          "id": 32,
+          "path": "/product-recycle",
+          "name": "产品重工",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "数据汇总",
+      "icon": "el-icon-user",
+      "haveChild": true,
+      "children": [
+        {
+          "id": 41,
+          "path": "/production-order-list",
+          "name": "生产指令",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        },
+        {
+          "id": 42,
+          "path": "/material-stock",
+          "name": "材料库存",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        },
+        {
+          "id":44,
+          "path": "/product-stock",
+          "name": "产品库存",
+          "icon": "el-icon-s-home",
+          "haveChild": false
+        }
+      ]
+    }
+  ]
+  
