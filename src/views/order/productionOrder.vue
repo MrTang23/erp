@@ -64,7 +64,11 @@
                 <el-col :span="23">
                     <el-row :gutter="20">
                         <el-col :span="8"
-                            ><el-select
+                            >
+                            <!-- 
+                            <material-choose></material-choose>
+                             -->
+                            <el-select
                                 v-model="items.material_id"
                                 filterable
                                 placeholder="请选择材料"
@@ -175,7 +179,7 @@
         请上传指令单，最多上传一张图片
         <el-upload
             v-model:file-list="fileList"
-            action="http://127.0.0.1/imgUpload"
+            action="http://127.0.0.1:8000/imgUpload"
             list-type="picture-card"
             :on-success="getImageUrl"
             :limit="1"
@@ -284,7 +288,7 @@
                     </el-table>
                 </div>
                 <el-row style="margin-top: 10px">
-                    <el-col :span="8">作成：</el-col>
+                    <el-col :span="8">作成：王礼娟</el-col>
                     <el-col :span="8">确认：</el-col>
                     <el-col :span="8">核准：</el-col>
                 </el-row>
@@ -485,7 +489,7 @@ export default {
                 let item = this.productionOrderForm.material_list[i];
                 if (
                     item.material_order_weight == "" ||
-                    item.material_name == "" ||
+                    item.material_id == "" ||
                     item.material_order_kind == ""
                 ) {
                     ElMessage.error("请填写材料列表必要信息");
@@ -679,11 +683,11 @@ export default {
 }
 .title-first {
     color: black;
-    font-size: 24px;
-    font-weight: 500;
-    padding: 15px;
+    font-size: 28px;
+    font-weight: 900;
+    padding: 20px;
     text-align: center;
-    font-family: "Songti";
+
 }
 .table-border {
     border: 2px solid #d4d7de;
@@ -692,10 +696,10 @@ export default {
 }
 .title-second {
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 18px;
-    padding: 0 10px 10px 10px;
-    font-family: "Songti";
+    padding: 0 15px 15px 15px;
+    
 }
 .main {
     width: 100%;

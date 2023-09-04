@@ -25,6 +25,7 @@
                 <el-select
                     v-model="productStorageNormalForm.production_order_id"
                     placeholder="请选择指令单号"
+                    filterable
                     style="width: 100%"
                     @change="getProductInfo"
                 >
@@ -97,7 +98,7 @@
         请上传出货单，最多上传一张图片
         <el-upload
             v-model:file-list="fileList"
-            action="http://127.0.0.1/imgUpload"
+            action="http://127.0.0.1:8000/imgUpload"
             list-type="picture-card"
             :on-success="getImageUrl"
             :limit="1"
@@ -154,8 +155,8 @@ export default {
                 ElMessage.error("请选择生产指令单");
                 return;
             }
-            if (this.productStorageNormalForm.product_storage_img == "") {
-                ElMessage.error("请上传领料单");
+            if (this.productStorageNormalForm.product_shipment_img == "") {
+                ElMessage.error("请上传出货单");
                 return;
             }
 
@@ -240,7 +241,7 @@ export default {
             this.productStorageNormalForm.product_list.splice(id - 1, 1);
         },
         getImageUrl(res) {
-            this.productStorageNormalForm.product_storage_img = res.data.file_name;
+            this.productStorageNormalForm.product_shipment_img = res.data.file_name;
             ElMessage.success(res.msg);
         },
         async getProductionOrderIdList() {

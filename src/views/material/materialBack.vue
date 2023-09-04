@@ -33,9 +33,9 @@
                 >
                 <el-col :span="23">
                     <el-row :gutter="20">
-                        <el-col :span="6"
+                        <el-col :span="8"
                             ><el-select
-                                v-model="items.material_name"
+                                v-model="items.material_id"
                                 filterable
                                 placeholder="请选择材料"
                                 style="width: 100%"
@@ -48,12 +48,12 @@
                                 />
                             </el-select>
                         </el-col>
-                        <el-col :span="6"
+                        <el-col :span="8"
                             ><el-input
                                 v-model="items.material_weight"
                                 placeholder="请输入重量"
                         /></el-col>
-                        <el-col :span="6"
+                        <el-col :span="8"
                             ><el-select
                                 v-model="items.material_back_kind"
                                 placeholder="请选择材料类别"
@@ -66,11 +66,7 @@
                                     :value="item.value"
                                 /> </el-select
                         ></el-col>
-                        <el-col :span="6"
-                            ><el-input
-                                v-model="items.back_remark"
-                                placeholder="请输入备注"
-                        /></el-col> </el-row
+                         </el-row
                 ></el-col>
             </el-row>
         </div>
@@ -84,7 +80,7 @@
         请上传退库单，最多上传一张图片
         <el-upload
             v-model:file-list="fileList"
-            action="http://127.0.0.1/imgUpload"
+            action="http://127.0.0.1:8000/imgUpload"
             list-type="picture-card"
             :on-success="getImageUrl"
             :limit="1"
@@ -133,7 +129,7 @@ export default {
                 material_list: [
                     {
                         id: 0,
-                        material_name: ref(""),
+                        material_id: ref(""),
                         material_weight: "",
                         material_back_kind: "",
                         back_remark: "备注",
@@ -161,7 +157,7 @@ export default {
             for (let i = 0; i < this.materialListLength + 1; i++) {
                 let item = this.materialBackForm.material_list[i];
                 if (
-                    item.material_name == "" ||
+                    item.material_id == "" ||
                     item.material_back_kind == "" ||
                     item.material_weight == ""
                 ) {
@@ -196,10 +192,9 @@ export default {
                             material_list: [
                                 {
                                     id: 0,
-                                    material_name: ref(""),
+                                    material_id: ref(""),
                                     material_weight: "",
-                                    material_back_kind: "",
-                                    back_remark: "备注",
+                                    material_back_kind: ""
                                 },
                             ],
                         };
@@ -214,7 +209,7 @@ export default {
             this.materialListLength++;
             this.materialBackForm.material_list[this.materialListLength] = {
                 id: this.materialListLength,
-                material_name: ref(""),
+                material_id: ref(""),
                 material_weight: "",
                 material_supplier: "",
                 material_from: ref(""),

@@ -89,6 +89,19 @@
         <el-button type="warning" text @click="deleteMaterial"
             ><el-icon><Minus /></el-icon>删除最后一项</el-button
         >
+        <el-divider>出厂单据</el-divider>
+        请上传单据，最多上传一张图片
+        <el-upload
+            v-model:file-list="fileList"
+            action="http://127.0.0.1:8000/imgUpload"
+            list-type="picture-card"
+            :on-success="getImageUrl"
+            :limit="1"
+            class="upload"
+        >
+            <el-icon><Plus /></el-icon>
+        </el-upload>
+        <el-divider></el-divider>
         <el-button
             style="width: 100%; margin-bottom: 20px"
             type="primary"
@@ -151,6 +164,7 @@ export default {
                 user_id: sessionStorage.getItem("user_id"),
                 role_id: sessionStorage.getItem("role_id"),
                 create_time: "",
+                material_out_factory_img:"",
                 material_list: [
                     {
                         id: 0,
@@ -278,7 +292,10 @@ export default {
             this.materialListLength--;
             this.materialBackForm.material_list.pop();
         },
-
+        getImageUrl(res) {
+            this.materialBackForm.material_out_factory_img = res.data.file_name;
+            ElMessage.success(res.msg);
+        },
         async getMaterialNameList() {
             await http({
                 url: "/getAllMaterialName",

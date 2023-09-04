@@ -25,6 +25,7 @@
                 <el-select
                     v-model="materialGetNormalForm.production_order_id"
                     placeholder="请选择指令单号"
+                    filterable
                     style="width: 100%"
                     @change="getMaterialInfo"
                 >
@@ -79,7 +80,7 @@
                         <el-col :span="6"
                             ><span style="line-height: 32px">{{
                                 "剩余可领取：" +
-                                items.material_order_weight +
+                                items.material_can_get +
                                 "kg"
                             }}</span></el-col
                         >
@@ -99,7 +100,7 @@
         请上传领料单，最多上传一张图片
         <el-upload
             v-model:file-list="fileList"
-            action="http://127.0.0.1/imgUpload"
+            action="http://127.0.0.1:8000/imgUpload"
             list-type="picture-card"
             :on-success="getImageUrl"
             :limit="1"

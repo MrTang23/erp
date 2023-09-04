@@ -3,7 +3,7 @@
         <el-select
             v-model="chooseMaterialName"
             filterable
-            placeholder="请选择原料"
+            placeholder="请选择产品"
         >
             <el-option
                 v-for="item in materialNameList"
@@ -47,7 +47,7 @@ export default {
             let length=this.allMaterialStock.length
             for(let i=0;i<length;i++){
                 let item=this.allMaterialStock[i]
-                if(item.material_name==this.chooseMaterialName){
+                if(item.product_name==this.chooseMaterialName){
                     this.materialStock=[],
                     this.materialStock.push(item)
                 }
@@ -58,7 +58,7 @@ export default {
         },
         async getMaterialNameList() {
             await http({
-                url: "/getProductStock",
+                url: "/getAllProductName",
                 method: "get",
             })
                 .then((res) => {

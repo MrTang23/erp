@@ -55,7 +55,7 @@ export default {
             let length=this.allMaterialStock.length
             for(let i=0;i<length;i++){
                 let item=this.allMaterialStock[i]
-                if(item.material_name==this.chooseMaterialName){
+                if(item.material_id==this.chooseMaterialName){
                     this.materialStock=[],
                     this.materialStock.push(item)
                 }

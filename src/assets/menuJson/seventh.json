@@ -43,8 +43,8 @@
         },
         {
           "id": 32,
-          "path": "/product-recycle",
-          "name": "产品重工",
+          "path": "/product-recycle-out",
+          "name": "重工出库",
           "icon": "el-icon-s-home",
           "haveChild": false
         }

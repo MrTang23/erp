@@ -18,19 +18,21 @@
                     >
                     <div class="flex-grow" />
                     <el-menu-item index="approve">
-                        <el-badge :value="approvalNumber" class="badge" v-if="showApproval">
+                        <el-badge
+                            :value="approvalNumber"
+                            class="badge"
+                            v-if="showApproval"
+                        >
                             <span>我的待办</span>
                         </el-badge>
                         <span v-if="!showApproval">我的待办</span>
                     </el-menu-item>
-                    <el-menu-item index="2">我发起的</el-menu-item>
-                    <el-menu-item index="3">我处理的</el-menu-item>
+                    <el-menu-item index="apply-list">我发起的</el-menu-item>
+                    <el-menu-item index="after-approve">我处理的</el-menu-item>
                     <div class="flex-grow" />
                     <el-sub-menu index="2">
                         <template #title>{{ username }}</template>
-                        <el-menu-item index="personal"
-                            >个人设置</el-menu-item
-                        >
+                        <el-menu-item index="personal">个人设置</el-menu-item>
                         <el-menu-item index="logout">退出登陆</el-menu-item>
                     </el-sub-menu>
                 </el-menu>
@@ -109,11 +111,13 @@
 
 <script>
 import http from "../assets/axios";
+import { ElMessage } from "element-plus";
+import { ref } from "vue";
 export default {
     data() {
         return {
-            showApproval:false,
-            approvalNumber:"",
+            showApproval: false,
+            approvalNumber: "",
             menuList: {}, //菜单列表
             username: sessionStorage.getItem("username"), //用户名
             content: "", //面包屑
@@ -146,25 +150,25 @@ export default {
     },
     created() {
         this.getMenuList();
-        this.getApprovalNumber()
+        this.getApprovalNumber();
         this.setBreadCrumb(sessionStorage.getItem("router"));
     },
     methods: {
-        getApprovalNumber(){
-            let user_id=parseFloat(sessionStorage.getItem('user_id'))
+        getApprovalNumber() {
+            let user_id = parseFloat(sessionStorage.getItem("user_id"));
             http({
                 url: "/getApprovalNumber",
                 method: "post",
                 data: {
-                    user_id:user_id
+                    user_id: user_id,
                 },
             })
                 .then((res) => {
-                    this.approvalNumber=res.data.data
-                    if (!res.data.data){
-                        this.showApproval=false
-                    }else{
-                        this.showApproval=true
+                    this.approvalNumber = res.data.data;
+                    if (!res.data.data) {
+                        this.showApproval = false;
+                    } else {
+                        this.showApproval = true;
                     }
                 })
                 .catch(function (error) {
@@ -209,21 +213,41 @@ export default {
                 this.content = "产品";
                 this.contentName = "产品出货";
             }
-            if (index == '/approve'){
+            if (index == "/approve") {
                 this.content = "菜单";
                 this.contentName = "我的待办";
+            }
+            if (index == "/after-approve") {
+                this.content = "菜单";
+                this.contentName = "我处理的";
+            }
+            if (index == "/production-order-list") {
+                this.content = "数据汇总";
+                this.contentName = "生产指令单";
+            }
+            if (index == "/production-order-list") {
+                this.content = "数据汇总";
+                this.contentName = "生产指令单";
+            }
+            if (index == "/test-material-order") {
+                this.content = "指令";
+                this.contentName = "试料指令单";
+            }
+            if (index == "/product-recycle-out") {
+                this.content = "产品";
+                this.contentName = "重工出库";
             }
         },
         selectHeadMenuItem(index) {
             if (index == "logout") {
                 sessionStorage.clear();
+                localStorage.clear();
                 this.$router.push("/login");
-            }else{
-                this.setBreadCrumb('/'+index);
-            sessionStorage.setItem("router", index);
-            this.$router.push(index);
+            } else {
+                this.setBreadCrumb("/" + index);
+                sessionStorage.setItem("router", index);
+                this.$router.push(index);
             }
-            
         },
         getMenuList() {
             let roleId = sessionStorage.getItem("role_id");
@@ -298,8 +322,5 @@ export default {
 .bread-crumb {
     background-color: rgb(230, 233, 241);
     height: 40px;
-}
-.badge{
-    
 }
 </style>

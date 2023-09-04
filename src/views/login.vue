@@ -50,6 +50,9 @@ export default {
             privateCheck: true,
         };
     },
+    created(){
+        
+    },
     methods: {
         async login() {
             await http({
@@ -70,6 +73,8 @@ export default {
                         sessionStorage.setItem("password", data.password);
                         sessionStorage.setItem("user_id", data.user_id);
                         sessionStorage.setItem("true_name", data.true_name);
+                        /* localStorage.setItem("username", data.username);
+                        localStorage.setItem("password", data.password); */
                         this.$router.push("/home");
                     }
                 })

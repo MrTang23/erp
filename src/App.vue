@@ -12,8 +12,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
-        "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    color: #606266;
+    font: 14px/1.5 "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    color: black !important;
 }
 </style>

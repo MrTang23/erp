@@ -13,13 +13,6 @@
           "haveChild": false
         },
         {
-          "id": 12,
-          "path": "/test-model-order",
-          "name": "试模指令",
-          "icon": "el-icon-s-home",
-          "haveChild": false
-        },
-        {
           "id": 13,
           "path": "/test-material-order",
           "name": "试料指令",
@@ -116,7 +109,7 @@
         {
           "id":46,
           "path": "/test-model-list",
-          "name": "试模试料明细",
+          "name": "试料明细",
           "icon": "el-icon-s-home",
           "haveChild": false
         }

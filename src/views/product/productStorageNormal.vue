@@ -25,6 +25,7 @@
                 <el-select
                     v-model="productStorageNormalForm.production_order_id"
                     placeholder="请选择指令单号"
+                    filterable
                     style="width: 100%"
                     @change="getProductInfo"
                 >
@@ -97,7 +98,7 @@
         请上传入库单，最多上传一张图片
         <el-upload
             v-model:file-list="fileList"
-            action="http://127.0.0.1/imgUpload"
+            action="http://127.0.0.1:8000/imgUpload"
             list-type="picture-card"
             :on-success="getImageUrl"
             :limit="1"

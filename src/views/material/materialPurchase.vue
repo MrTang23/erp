@@ -80,7 +80,7 @@
         请上传送货单，最多上传一张图片
         <el-upload
             v-model:file-list="fileList"
-            action="http://127.0.0.1/imgUpload"
+            action="http://127.0.0.1:8000/imgUpload"
             list-type="picture-card"
             :on-success="getImageUrl"
             :limit="1"
@@ -168,7 +168,7 @@ export default {
                 let item = this.materialPurchaseForm.material_list[i];
                 if (
                     item.material_from == "" ||
-                    item.material_name == "" ||
+                    item.material_id == "" ||
                     item.material_weight == ""
                 ) {
                     ElMessage.error("请填写必要信息");

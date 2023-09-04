@@ -43,7 +43,7 @@
         {
           "id":46,
           "path": "/test-model-list",
-          "name": "试模试料明细",
+          "name": "试料明细",
           "icon": "el-icon-s-home",
           "haveChild": false
         }

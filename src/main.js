@@ -6,6 +6,7 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 import Print from 'vue3-print-nb' 
 import "./assets/main.css";
+import Components from './components/components'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 const app = createApp(App)
@@ -14,5 +15,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 app.use(Print)
 app.use(ElementPlus)
+app.use(Components)
 app.use(router)
 app.mount('#app')
